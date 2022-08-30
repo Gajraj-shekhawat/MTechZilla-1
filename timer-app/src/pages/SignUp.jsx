@@ -11,13 +11,15 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import {NavLink,Navigate, useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
+import { signupUser } from "../redux/auth/actions";
+import Loader from "../components/Loader";
 
 
 const theme = createTheme();
 
 const SignUp = () => {
 
-  const {isLoading,isError,status}=useSelector(store=>store.auth)
+  const {isLoading,isError,status,errMessage}=useSelector(store=>store.auth)
   
   const dispatch =useDispatch()
 
@@ -31,7 +33,7 @@ const SignUp = () => {
       email: data.get("email"),
       password: data.get("password"),
     }
-  
+  dispatch(signupUser(payload,navigate))
   };
 
 if(status){
@@ -120,7 +122,7 @@ if(status){
                     label="Email Address"
                     name="email"
                     autoComplete="email"
-                    type="email"
+                    // type="email"
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -135,12 +137,16 @@ if(status){
                   />
                 </Grid>
               </Grid>
+              <Grid color={"red"} textAlign={"center"}>
+               {isError && <h3>{errMessage}</h3>}
+              </Grid>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
+                {isLoading && <Loader/>}
                 Sign Up
               </Button>
               <Grid container>

@@ -25,7 +25,7 @@ router.post("/signup", async (req, res) => {
   const user = await UserModel(payload);
   user.save((err, user) => {
     if (err) return res.send({ isError: true, Message: err.message });
-    res.send({ data: user, isError: false });
+    res.send({isError: false });
   });
 });
 module.exports = router;

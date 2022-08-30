@@ -26,6 +26,7 @@ export const signupRequest = () => ({
 export const signupSuccess = () => ({
   type: authSignupActionTypes.SUCCESS,
 });
-export const signupFailure = () => ({
+export const signupFailure = (payload) => ({
   type: authSignupActionTypes.FAILURE,
+  payload
 });
