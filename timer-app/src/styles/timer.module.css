@@ -1,0 +1,23 @@
+.timerContainer{
+    text-align: center;
+}
+.ctrlBtns{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.ctrlBtns>button{
+    background-color: black;
+    color: aliceblue;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ctrlBtns>button:disabled{
+    cursor: not-allowed;
+    background-color: beige;
+    color: teal;
+}
