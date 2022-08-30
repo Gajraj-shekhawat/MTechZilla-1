@@ -1,9 +1,10 @@
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 import styles from "../styles/timer.module.css"
 
 const Timer = () => {
   
-  const initialVal = { sec: 0, minute: 3, id: null, isBreak: false };
+  const initialVal = { sec: 0, minute: 25, id: null, isBreak: false };
   const [timer, setTimer] = useState(initialVal);
 
   const handleStart = () => {
@@ -18,7 +19,7 @@ const Timer = () => {
               return initialVal;
             }
           } else if (prev.sec === 0) {
-            return { ...prev, minute: prev.minute - 1, sec: 2 };
+            return { ...prev, minute: prev.minute - 1, sec: 59 };
           } else {
             return { ...prev, sec: prev.sec - 1 };
           }
@@ -47,6 +48,7 @@ const Timer = () => {
 
   return (
     <>
+    <Navbar/>
       <div className={styles.timerContainer}>
         <h1>{timer.isBreak ? "Break Timer" : "Timer"}</h1>
         <h1>

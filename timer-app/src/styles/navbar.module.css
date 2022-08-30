@@ -1,0 +1,19 @@
+.conatiner{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    background-color: black;
+    color: gray;
+    padding: 0 20%;
+}
+.conatiner>div:first-child{
+    line-height: 5px;
+}
+.conatiner button{
+    background-color: teal;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

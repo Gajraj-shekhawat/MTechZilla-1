@@ -39,18 +39,6 @@ const SignUp = () => {
 if(status){
   return <Navigate to="/"/>
 }
-// if(isLoading){
-//   return <Loader/>
-// }
-// if(isError){
-//   swal({
-//     title: "Some Thing went wrong",
-//       text: "Try again sometime later",
-//       icon: "error",
-//       button: "Click here to try again",
-//     });
-// }
-
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>

@@ -3,27 +3,25 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { signinUser } from "../redux/auth/actions";
+import Loader from "../components/Loader";
 
 const theme = createTheme();
 
 const Login = () => {
 
-  const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
-  const { isLoading, isError, status } = useSelector((store) => store.auth);
-
+  const { isLoading, isError, status ,errMessage} = useSelector((store) => store.auth);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -31,15 +29,13 @@ const Login = () => {
       email: data.get("email"),
       password: data.get("password"),
     };
-
+    dispatch(signinUser(payload));
   };
 
-  if(status){
-    return <Navigate to="/"/>
+  if (status) {
+    return <Navigate to="/" />;
   }
-  // if(isLoading){
-  //   return <Loader/>
-  // }
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -85,7 +81,7 @@ const Login = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                type="email"
+                // type="email"
                 autoFocus
               />
               <TextField
@@ -98,12 +94,16 @@ const Login = () => {
                 id="password"
                 autoComplete="current-password"
               />
+              <Grid color={"red"} textAlign={"center"}>
+               {isError && <h3>{errMessage}</h3>}
+              </Grid>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
+                {isLoading && <Loader/>}
                 Sign In
               </Button>
               <Grid container>
@@ -126,6 +126,6 @@ const Login = () => {
       </Grid>
     </ThemeProvider>
   );
-}
+};
 
-export default Login
+export default Login;
