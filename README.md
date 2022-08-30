@@ -10,7 +10,7 @@
 Tech stack: react, redux, thunk, express,mongoDb,MUI,CSS
 
 
-description: You can start timer without Login in, to start timer create account and login quickly to see. I have mongoDb for data to store auth data. also used localstorage to persist data between refresh pages. for login and signup i have used MUI templates. and also optimised with redux.Thats it.
+description: You can not start the timer without Login in, I have used Private Routing for this, to start the timer create an account and log in quickly to see. I have used MongoDB for data to store auth data. also used local storage to persist data between refresh pages. for login and signup, I have used MUI templates. and also optimised with redux. That's it.
 
 <h1>Assignment 2</h1>
 <a href="https://isnt-gajraj-singh-shekhawat-awesome-b8339.netlify.app/">deployed link</a>
@@ -21,5 +21,5 @@ description: You can start timer without Login in, to start timer create account
 Tech stack: react, redux, thunk, CSS,
 
 
-description: You can simple enter your username of git and hit enter you will able to see your information. agian optimised with redux. for more deatils click on deployed Link.
+description: You can simply enter your username of git and hit enter you will be able to see your information. again optimised with redux. for more details click on deployed Link.
 
