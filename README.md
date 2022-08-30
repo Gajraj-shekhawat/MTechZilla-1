@@ -18,7 +18,7 @@ description: You can start timer without Login in, to start timer create account
 <a href="https://github.com/Gajraj-shekhawat/MTechZilla-1/tree/master/github">Repo Link</a>
 <br/>
 
-Tech stack: react, redux, thunk, CSS
+Tech stack: react, redux, thunk, CSS,
 
 
 description: You can simple enter your username of git and hit enter you will able to see your information. agian optimised with redux. for more deatils click on deployed Link.
