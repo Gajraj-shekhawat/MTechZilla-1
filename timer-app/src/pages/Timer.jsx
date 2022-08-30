@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/timer.module.css"
 
 const Timer = () => {
+  
   const initialVal = { sec: 0, minute: 3, id: null, isBreak: false };
   const [timer, setTimer] = useState(initialVal);
 
@@ -17,7 +18,7 @@ const Timer = () => {
               return initialVal;
             }
           } else if (prev.sec === 0) {
-            return { ...prev, minute: prev.minute - 1, sec: 59 };
+            return { ...prev, minute: prev.minute - 1, sec: 2 };
           } else {
             return { ...prev, sec: prev.sec - 1 };
           }
